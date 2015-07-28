@@ -8,7 +8,6 @@ public class LinkedList {
 
 	private class Node {
 		private Object data;
-		// 다음 노드
 		private Node next;
 
 		public Node(Object input) {
@@ -19,9 +18,7 @@ public class LinkedList {
 	}
 
 	public void addFirst(Object input) {
-		// 노드를 생성
 		Node newNode = new Node(input);
-		// 새로운 노드의 다음 노드로 해드를 지정.
 		newNode.next = head;
 		// 헤드로 새로운 노드를 지정.
 		head = newNode;
@@ -32,13 +29,11 @@ public class LinkedList {
 	}
 
 	public void addLast(Object input) {
-		// 노드를 생.
 		Node newNode = new Node(input);
 		// 리스트의 노드가 없다면 첫번째 노드를 추가하는 메소드를 사용...
 		if (size == 0) {
 			addFirst(input);
 		} else {
-			// 마지막 노드의 다음 노드로 생성한 노드를 지정.
 			tail.next = newNode;
 			// 마지막 노드를 갱신.
 			tail = newNode;
@@ -72,11 +67,9 @@ public class LinkedList {
 	}
 
 	public String toString() {
-		// 노드가 없다면 []를 리턴.
 		if (head == null) {
 			return "[]";
 		}
-		// 탐색을 시작합니다.
 		Node temp = head;
 		String str = "[";
 		// 마지막 노드는 다음 노드가 없기 때문에 아래의 구문은 마지막 노드는 제외.
@@ -109,7 +102,6 @@ public class LinkedList {
 		if (todoDeleted == tail) {
 			tail = temp;
 		}
-		// cur.next를 삭제.
 		todoDeleted = null;
 		size--;
 		return returnData;
@@ -133,11 +125,9 @@ public class LinkedList {
 		Node temp = head;
 		// 탐색 대상이 몇번째 엘리먼트에 있는지를 의미하는 변수로 index를 사용.
 		int index = 0;
-		// 탐색 값과 탐색 대상의 값을 비교합니다.
 		while (temp.data != data) {
 			temp = temp.next;
 			index++;
-			// temp의 값이 null이라는 것은 더 이상 탐색 대상이 없다는 것을 의미합니다.이 때 -1을 리턴.
 			if (temp == null)
 				return -1;
 		}
